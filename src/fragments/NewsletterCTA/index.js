@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react'
+import React from 'react'
+import PropTypes from 'prop-types'
 import Newsletter from '../Newsletter'
 import styles from './styles.css'
 

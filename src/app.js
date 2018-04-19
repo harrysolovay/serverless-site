@@ -1,5 +1,6 @@
 /* Main entry of all requests */
-import React, { Component, PropTypes } from 'react'
+import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import ReactDOM from 'react-dom' // eslint-disable-line
 import Head from './fragments/Head'
 import Scripts from './fragments/GlobalScripts'

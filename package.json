@@ -46,7 +46,7 @@
     "localforage": "^1.4.3",
     "lodash.debounce": "^4.0.8",
     "phenomic-serverless": "0.22.00",
-    "prop-types": "^15.5.10",
+    "prop-types": "^15.6.1",
     "react": "^15.0.0",
     "react-auto-form": "^1.3.0",
     "react-dom": "^15.0.0",

@@ -1,4 +1,5 @@
-import React, { PropTypes, Component } from 'react'
+import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import Button from '../../components/Button'
 import Default from '../../layouts/Default'
 import styles from './Homepage.css'

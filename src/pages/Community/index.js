@@ -1,5 +1,6 @@
 /*eslint-disable */
-import React, { Component, PropTypes } from 'react'
+import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import Default from '../../layouts/Default'
 
 export default class CommunityPage extends Component {

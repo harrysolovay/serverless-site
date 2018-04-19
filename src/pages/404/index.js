@@ -1,7 +1,8 @@
 /**
  * 404 page template
  */
-import React, { Component, PropTypes } from 'react'
+import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import axios from 'axios'
 import Splash from '../Splash'
 import { getParams } from '../../utils/analytics/source/urlParams'

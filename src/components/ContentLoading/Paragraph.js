@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react'
+import React from 'react'
+import PropTypes from 'prop-types'
 import TextLinePlaceholder from './TextLinePlaceholder'
 import styles from './Paragraph.css' // eslint-disable-line
 

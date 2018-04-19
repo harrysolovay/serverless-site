@@ -1,7 +1,8 @@
 /*
  Render and unrender higher order component from https://github.com/react-toolbox/
 */
-import React, { Component, PropTypes } from 'react'
+import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 
 const ActivableRendererFactory = (options = { delay: 500 }) => (ActivableComponent) => {
   return class ActivableRenderer extends Component {

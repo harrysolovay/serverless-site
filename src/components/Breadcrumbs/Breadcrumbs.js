@@ -1,5 +1,6 @@
 /* fork of https://github.com/TiuSh/react-simple-breadcrumb/ */
 import React from 'react'
+import PropTypes from 'prop-types'
 import BreadcrumbItem from './item'
 import styles from './Breadcrumbs.css'
 
@@ -73,14 +74,14 @@ const Breadcrumbs = ({
 }
 
 Breadcrumbs.propTypes = {
-  path: React.PropTypes.string.isRequired,
-  pathSeparator: React.PropTypes.string,
-  pathRoot: React.PropTypes.string,
-  getUrlFromPathSegments: React.PropTypes.func,
-  onClick: React.PropTypes.func,
-  className: React.PropTypes.oneOfType([
-    React.PropTypes.string,
-    React.PropTypes.object,
+  path: PropTypes.string.isRequired,
+  pathSeparator: PropTypes.string,
+  pathRoot: PropTypes.string,
+  getUrlFromPathSegments: PropTypes.func,
+  onClick: PropTypes.func,
+  className: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.object,
   ]),
 }
 

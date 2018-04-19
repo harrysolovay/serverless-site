@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react'
+import React from 'react'
+import PropTypes from 'prop-types'
 import Svg from 'react-svg-inline'
 import twitterSVG from '../../assets/icons/twitter.svg'
 import GithubSVG from '../../assets/icons/github.svg'

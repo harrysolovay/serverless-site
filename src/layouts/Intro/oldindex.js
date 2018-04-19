@@ -1,7 +1,8 @@
 /**
  * Base Intro template
  */
-import React, { Component, PropTypes } from 'react'
+import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import { BodyContainer } from 'phenomic-serverless'
 import { Link } from 'react-router'
 import Svg from 'react-svg-inline'

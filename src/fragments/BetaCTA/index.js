@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react'
+import React from 'react'
+import PropTypes from 'prop-types'
 import Auth from '../../components/Auth'
 import { twitterShare } from '../../utils/social/share'
 import platformImage from '../../assets/images/platform_4.gif'

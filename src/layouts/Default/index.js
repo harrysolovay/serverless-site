@@ -1,7 +1,8 @@
 /**
  * Base Page template
  */
-import React, { PropTypes } from 'react'
+import React from 'react'
+import PropTypes from 'prop-types'
 import { BodyContainer, joinUri } from 'phenomic-serverless'
 import Helmet from 'react-helmet'
 import classnames from 'classnames'

@@ -1,4 +1,5 @@
-import React, { Component, PropTypes } from 'react'
+import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import SVG from 'react-svg-inline'
 import styles from './SearchResult.css'
 import AlgoliaLogo from '../../assets/images/algolia.svg'

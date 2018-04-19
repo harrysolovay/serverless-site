@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import styles from './Resource.css'
 
 const Resource = (props) => {
@@ -14,7 +15,7 @@ const Resource = (props) => {
 }
 
 Resource.propTypes = {
-  params: React.PropTypes.object,
+  params: PropTypes.object,
 }
 
 export default Resource
