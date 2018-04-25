@@ -1,0 +1,74 @@
+.container {
+
+  width: 100%;
+  padding: 0px 10px;
+  margin-top: 30px;
+  margin-bottom: 10px;
+
+  > div {
+
+    display: flex;
+    flex-direction: row;
+    background-color: #4b91ab;
+    padding: 65px 0px;
+
+    @media (max-width: 768px) {
+      flex-direction: column;
+    }
+
+    > div {
+
+      display: flex;
+      flex : 1;
+      justify-content: center;
+      align-items: center;
+
+      > div {
+        padding: 15px 10%;
+      }
+
+    }
+  }
+}
+  
+  .text {
+    color: #fff;
+  }
+
+  .enterEmail {
+    > div {
+      display: flex;
+      flex-direction: row;
+      flex-shrink: 1;
+      box-shadow: 0px 0px 5px rgba(0, 0, 0, .125);
+    }
+  }
+
+    .input {
+      margin: 0px;
+      height: 40px;
+      font-family: 'Courier New', Courier, monospace;
+      font-weight: 600;
+      font-size: 1em;
+      padding-top: 3px;
+      padding-left: 20px;
+      -webkit-appearance: none;
+      border-radius: 0px;
+      border-width: 0px;
+      &:focus {
+        outline: none;
+      }
+    }
+
+    .button {
+      height: 40px;
+      width: 90px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Courier New', Courier, monospace;
+      font-weight: 600;
+      background-color: #ec6258;
+      cursor: pointer;
+      color: #fff;
+    }

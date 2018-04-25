@@ -8,7 +8,19 @@ import SubmitResource from './pages/Community/Submit'
 
 export default (
   <Route component={App}>
-    <Route path='/blog/page/:page' component={Blog} />
+    {
+      [
+        '/blog/page/:page',
+        '/blog/category/:category',
+        '/blog/category/:category/page/:page'
+      ].map((path, i) => (
+        <Route
+          { ...{ path } }
+          component={Blog}
+          key={ i }
+        />
+      ))
+    }
     <Route path='/community/resource/:id' component={Resource} />
     <Route path='/community/submit' component={SubmitResource} />
     <Route path='access_token=:token' component={App} />

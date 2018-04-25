@@ -1,0 +1,57 @@
+
+.container {
+  width: 100%;
+  padding: 0px 10px;
+  margin-top: 30px;
+  margin-bottom: 0px;
+  > div {
+    border: 1px solid #8c8c8c;
+  }
+}
+
+  .categories {
+    display: flex;
+    flex-direction: column;
+    @media (min-width: 768px) {
+      flex-direction : row;
+    }
+  }
+
+
+    .link {
+      > .linkLabel {
+        border-top: 1px solid #ddd;
+        @media (min-width: 768px) {
+          border-top-width: 0px;
+        }
+      }
+      &:first-child {
+        > .linkLabel { 
+          border-top-width: 0px;
+        }
+      }
+    }
+
+    .current {
+      composes: link;
+      background-image: url('../../../assets/images/dots-background.png');
+      background-size: 50px;
+      background-repeat: repeat;
+      background-position: center;
+      > .linkLabel {
+        background-color: rgba(255, 255, 255, .75);
+      }
+    }
+
+      .linkLabel {
+        flex: 1;
+        height : 100%;
+        font-size: .875em;
+        line-height: 2em;
+        letter-spacing: .036em;
+        padding: 10px 15px;
+        @media (min-width: 768px) {
+          font-size: .75em;
+          line-height: 1.125em;
+        }
+      }
