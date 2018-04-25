@@ -1,0 +1,57 @@
+.container {
+
+  width: 100%;
+  padding: 0px 10px;
+  margin-top: 30px;
+  margin-bottom: 10px;
+  color: #fff;
+
+  > div {
+
+    display: flex;
+    flex-direction: row;
+    background-color: #ec6258;
+    padding: 65px 0px;
+
+    @media (max-width: 768px) {
+      flex-direction: column;
+    }
+
+    > div {
+      display: flex;
+      flex: 1;
+      justify-content: center;
+      align-items: center;
+    }
+
+  }
+}
+
+  .heading {
+
+  }
+
+  .instruction {
+
+  }
+
+  .command {
+    
+  }
+
+.links {
+  a {
+    display: block;
+    padding-top: 10px;
+    &:first-child {
+      padding-top: 0px;
+    }
+  }
+}
+
+  .link {
+    width: 190px;
+    text-align: center;
+    padding: 8px 10px;
+    border: 1px solid #fff;
+  }

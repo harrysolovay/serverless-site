@@ -7,8 +7,9 @@ import FilterAndSearch from './FilterAndSearch'
 import Pagination from './Pagination'
 import Subscribe from '../../fragments/Subscribe'
 import styles from './Blog.css'
+import PreFooter from './PreFooter'
 
-const numberOfPostsPerPage = 20
+const numberOfPostsPerPage = 10
 
 class BlogPage extends Component {
 
@@ -20,9 +21,15 @@ class BlogPage extends Component {
 
     const { isLoading, params } = this.props
 
+    const category = params && params.category
+      ? params.category : null
+
+    const categorySubstring = category
+      ? `category/${ category }/` : ''
+
     let filter = { layout : 'Post' }
     if(params && params.category) {
-      filter = Object.assign(filter, { category : params.category })
+      filter = Object.assign(filter, { category })
     }
 
     const
@@ -65,12 +72,6 @@ class BlogPage extends Component {
 
     })()
 
-    const category = params && params.category
-      ? params.category : null
-
-    const categorySubstring = category
-      ? `category/${ category }/` : ''
-
     const searchAndFilter = <FilterAndSearch { ...{ category } } />
 
     const renderContent = isLoading
@@ -100,9 +101,14 @@ class BlogPage extends Component {
           <div className={ styles.postList }>
 
             {
-              latestPosts.map((page, i) => (
-                <BlogPreview key={ i } page={ page } />
-              ))
+              latestPosts.map((page, i) => {
+                return (
+                  <div>
+                    { i + 1 === ( numberOfPostsPerPage - ( numberOfPostsPerPage % 2 ) ) / 2 && <Subscribe /> }
+                    <BlogPreview key={ i } page={ page } />
+                  </div>
+                )
+              })
             }
             <Pagination
               { ...{
@@ -111,6 +117,8 @@ class BlogPage extends Component {
                 numberOfPages
               } }
             />
+            <PreFooter />
+
           </div>
         )
 
@@ -122,7 +130,6 @@ class BlogPage extends Component {
         className={styles.blogPage}
       >
         <div className={styles.wrapper}>
-          <Subscribe />
           { searchAndFilter }
           { renderContent }
         </div>

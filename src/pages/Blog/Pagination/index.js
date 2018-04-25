@@ -4,13 +4,13 @@ import { Link } from 'react-router'
 import styles from './styles.css'
 
 const Pagination = ({
-  categoryString,
-  pageNumber,
+  categorySubstring,
+  pageNumber=0,
   numberOfPages
 }) => {
 
   let nextLink = (
-    <Link to={`/blog/${ categoryString }page/1`}>
+    <Link to={`/blog/${ categorySubstring }page/1`}>
       <div className={ styles.nextLink }>next</div>
     </Link>
   )
@@ -19,21 +19,21 @@ const Pagination = ({
 
   const prevNum = ((pageNumber - 1) === 0) ? '' : `page/${ pageNumber - 1 }`
 
-  if(pageNumber === numberOfPages) {
+  if(pageNumber + 1 === numberOfPages || pageNumber === 0 && numberOfPages === 1) {
     nextLink = null
   } else {
     nextLink = (
-      <Link to={ `/blog/${ categoryString }page/${ pageNumber + 1 }` }>
+      <Link to={ `/blog/${ categorySubstring }page/${ pageNumber + 1 }` }>
         <div className={ styles.nextLink }>next</div>
       </Link>
     )
   }
 
-  if(pageNumber === 1) {
+  if(pageNumber === 0) {
     previousLink = null
   } else {
     previousLink = (
-      <Link to={ `/blog/${ categoryString }${ prevNum }` }>
+      <Link to={ `/blog/${ categorySubstring }${ prevNum }` }>
         <div className={ styles.previousLink }>previous</div>
       </Link>
     )
@@ -45,21 +45,21 @@ const Pagination = ({
 
   if(numberOfPages > 7) {
 
-    if(pageNumber < 5) {
+    if(pageNumber < 4) {
       pageNumberLinkIndices = [
+        0,
         1,
         2,
         3,
         4,
-        5,
         '..',
-        numberOfPages
+        numberOfPages - 1
       ]
     }
     
     else if(pageNumber >= 5 && pageNumber < numberOfPages - 4) {
       pageNumberLinkIndices = [
-        1,
+        0,
         '..',
         pageNumber - 2,
         pageNumber - 1,
@@ -67,27 +67,27 @@ const Pagination = ({
         pageNumber + 1,
         pageNumber + 2,
         '..',
-        numberOfPages
+        numberOfPages - 1
       ]
     }
     
-    else if(pageNumber >= numberOfPages - 4) {
+    else if(pageNumber >= numberOfPages - 5) {
       pageNumberLinkIndices = [
-        1,
+        0,
         '..',
+        numberOfPages - 6,
         numberOfPages - 5,
         numberOfPages - 4,
         numberOfPages - 3,
         numberOfPages - 2,
-        numberOfPages - 1,
-        numberOfPages
+        numberOfPages - 1
       ]
     }
 
   }
 
   else {
-    for(let i = 0; i < numberOfPages.length; i++) {
+    for(let i = 0; i < numberOfPages; i++) {
       pageNumberLinkIndices.push(i)
     }
   }
@@ -97,15 +97,15 @@ const Pagination = ({
       e === '..'
         ? <div className={ styles.pageNumberLinkSeparator }>..</div>
         : (
-            <Link to={ `/blog/${ categoryString }page/${ e }` }>
+            <Link to={ `/blog/${ categorySubstring }page/${ e }` }>
               <div
                 className={
-                  e === pageNumber
+                  e === pageNumber || e === 0 && pageNumber === 0
                     ? styles.currentPageNumberLink
                     : styles.pageNumberLink
                 }
               >
-                { e }
+                { e + 1 }
               </div>
             </Link>
           )
