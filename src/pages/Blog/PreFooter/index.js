@@ -7,7 +7,7 @@ const PreFooter = props => (
     <div>
       <div>
 
-        <div>
+        <div className={ styles.text }>
 
           <div className={ styles.heading }>
             New to Serverless?

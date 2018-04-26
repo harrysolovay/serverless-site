@@ -4,7 +4,7 @@ import { Link } from 'react-router'
 import authorData from '../generated-authors.json'
 import defaultThumbnail from '../../../assets/images/platform_4.gif'
 import styles from './styles.css'
-import { getCategoryNameFromPath } from '../util'
+import { getCategoryNameFromPath, createAuthorshipLabel } from '../util'
 
 const BlogPreview = ({ page }) => {
   let author
@@ -20,14 +20,7 @@ const BlogPreview = ({ page }) => {
     : null
 
   const authorsLabel = page.authors
-    ? (arrayOfNames => {
-        return `Written by ${ arrayOfNames.length > 1
-          ? (() => {
-              const last = arrayOfNames.pop()
-              return `${ arrayOfNames.join(', ') } and ${ last }`
-            })()
-          : arrayOfNames[0] }`
-      })(page.authors.map(e => authorData[e].name))
+    ? createAuthorshipLabel(page.authors.map(e => authorData[e].name))
     : null
 
   if (page.draft) {

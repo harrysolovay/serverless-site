@@ -4,7 +4,7 @@
   justify-content: center;
   width: 100%;
   flex-wrap: wrap;
-  padding: 10px 2.5% 20px 2.5%;
+  padding: 40px 2.5% 40px 2.5%;
 }
 
   .paginationItem {
@@ -35,6 +35,7 @@
   .currentPageNumberLink {
     composes: paginationLink;
     opacity: .25;
+    cursor: not-allowed;
   }
 
   .pageNumberLinkSeparator {

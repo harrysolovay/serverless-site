@@ -2,15 +2,15 @@
 
   width: 100%;
   padding: 0px 10px;
-  margin-top: 30px;
-  margin-bottom: 10px;
+  margin-top: 0px;
+  margin-bottom: 40px;
   color: #fff;
 
   > div {
 
     display: flex;
     flex-direction: row;
-    background-color: #ec6258;
+    background-color: #fd5750;
     padding: 65px 0px;
 
     @media (max-width: 768px) {
@@ -27,17 +27,27 @@
   }
 }
 
-  .heading {
-
+  .text {
+    @media (max-width: 768px) {
+      padding-bottom: 40px;
+    }
   }
 
-  .instruction {
+    .heading {
+      font-size: 2em;
+      font-weight: 500;
+    }
 
-  }
+    .instruction {
+      margin-top: 20px;
+    }
 
-  .command {
-    
-  }
+    .command {
+      margin-top: 15px;
+      font-family: 'Courier New', Courier, monospace;
+      font-weight: 600;
+      padding-bottom: 15px;
+    }
 
 .links {
   a {

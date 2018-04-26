@@ -12,7 +12,7 @@
   .categories {
     display: flex;
     flex-direction: column;
-    @media (min-width: 768px) {
+    @media (min-width: 860px) {
       flex-direction : row;
     }
   }
@@ -21,7 +21,7 @@
     .link {
       > .linkLabel {
         border-top: 1px solid #ddd;
-        @media (min-width: 768px) {
+        @media (min-width: 860px) {
           border-top-width: 0px;
         }
       }
@@ -39,7 +39,7 @@
       background-repeat: repeat;
       background-position: center;
       > .linkLabel {
-        background-color: rgba(255, 255, 255, .75);
+        background-color: rgba(255, 255, 255, .875);
       }
     }
 
@@ -50,8 +50,12 @@
         line-height: 2em;
         letter-spacing: .036em;
         padding: 10px 15px;
-        @media (min-width: 768px) {
+        font-family: 'Courier New', Courier, monospace;
+        font-weight: 600;
+        opacity: .75;
+        @media (min-width: 860px) {
           font-size: .75em;
           line-height: 1.125em;
+          padding: 17px 10px 15px 10px;
         }
       }

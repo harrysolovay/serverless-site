@@ -22,7 +22,17 @@ const getCategory = (dictionary) => (key) => {
 const getCategoryNameFromPath = getCategory(categoryNames)
 const getCategoryPathFromName = getCategory(categoryPaths)
 
+const createAuthorshipLabel = (arrayOfAuthorName) => {
+  return `Written by ${ arrayOfAuthorName.length > 1
+    ? (() => {
+        const last = arrayOfAuthorName.pop()
+        return `${ arrayOfAuthorName.join(', ') } and ${ last }`
+      })()
+    : arrayOfAuthorName[0] }`
+}
+
 export {
   getCategoryNameFromPath,
-  getCategoryPathFromName
+  getCategoryPathFromName,
+  createAuthorshipLabel
 }

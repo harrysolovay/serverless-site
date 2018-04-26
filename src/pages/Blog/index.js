@@ -8,8 +8,10 @@ import Pagination from './Pagination'
 import Subscribe from '../../fragments/Subscribe'
 import styles from './Blog.css'
 import PreFooter from './PreFooter'
+import FeaturedPostPreview from './FeaturedPostPreview'
+import { createAuthorshipLabel } from './util';
 
-const numberOfPostsPerPage = 10
+const numberOfPostsPerPage = 7
 
 class BlogPage extends Component {
 
@@ -27,7 +29,7 @@ class BlogPage extends Component {
     const categorySubstring = category
       ? `category/${ category }/` : ''
 
-    let filter = { layout : 'Post' }
+    let filter = { layout: 'Post' }
     if(params && params.category) {
       filter = Object.assign(filter, { category })
     }
@@ -36,6 +38,10 @@ class BlogPage extends Component {
       pageNumber = (params && params.page) ? parseInt(params.page, 10) : 0,
       pagination = numberOfPostsPerPage * pageNumber,
       offset = pagination + numberOfPostsPerPage
+
+    const featuredPost = this.context.collection.filter((post) => {
+      return post.featured
+    })[0]
 
     const {
       latestPosts,
@@ -99,12 +105,23 @@ class BlogPage extends Component {
         )
       : (
           <div className={ styles.postList }>
-
+            {
+              !category &&
+                <FeaturedPostPreview
+                  image={ featuredPost.thumbnail }
+                  category={ featuredPost.category }
+                  title={ featuredPost.title }
+                  description={ featuredPost.description }
+                  authorshipLabel={ createAuthorshipLabel(featuredPost.authors) }
+                  url={ featuredPost.__url }
+                />
+            }
+            { searchAndFilter }
             {
               latestPosts.map((page, i) => {
                 return (
                   <div>
-                    { i + 1 === ( numberOfPostsPerPage - ( numberOfPostsPerPage % 2 ) ) / 2 && <Subscribe /> }
+                    { i === ( ( numberOfPostsPerPage - ( numberOfPostsPerPage % 2 ) ) / 2 ) && <Subscribe /> }
                     <BlogPreview key={ i } page={ page } />
                   </div>
                 )
@@ -130,7 +147,6 @@ class BlogPage extends Component {
         className={styles.blogPage}
       >
         <div className={styles.wrapper}>
-          { searchAndFilter }
           { renderContent }
         </div>
       </Default>
