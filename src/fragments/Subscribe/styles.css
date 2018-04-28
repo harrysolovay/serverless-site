@@ -7,32 +7,42 @@
 
   > div {
 
-    display: flex;
-    flex-direction: row;
-    background-color: #4b91ab;
-    padding: 65px 0px;
-
-    @media (max-width: 768px) {
-      flex-direction: column;
-    }
+    background-image: url('../../assets/images/surreal-cat.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    border: 1px solid #fd5750;
 
     > div {
 
       display: flex;
-      flex : 1;
-      justify-content: center;
-      align-items: center;
+      flex-direction: row;
+      background-color: rgba(255, 255, 255, .95);
+      padding: 100px 0px;
 
-      > div {
-        padding: 15px 10%;
+      @media (max-width: 768px) {
+        flex-direction: column;
       }
 
+      > div {
+
+        display: flex;
+        flex : 1;
+        justify-content: center;
+        align-items: center;
+
+        > div {
+          padding: 15px 10%;
+        }
+
+      }
     }
   }
 }
   
   .text {
-    color: #fff;
+    color: #000;
+    font-size: 1.25em;
   }
 
   .enterEmail {
@@ -40,21 +50,19 @@
       display: flex;
       flex-direction: row;
       flex-shrink: 1;
-      box-shadow: 0px 0px 5px rgba(0, 0, 0, .125);
     }
   }
 
     .input {
       margin: 0px;
-      height: 40px;
-      font-family: 'Courier New', Courier, monospace;
-      font-weight: 600;
+      padding-top: 5px;
+      padding-bottom: 7px;
+      padding-left: 15px;
       font-size: 1em;
-      padding-top: 3px;
-      padding-left: 20px;
       -webkit-appearance: none;
       border-radius: 0px;
       border-width: 0px;
+      background-color: rgba(0, 0, 0, .0625);
       &:focus {
         outline: none;
       }
@@ -66,8 +74,6 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      font-family: 'Courier New', Courier, monospace;
-      font-weight: 600;
       background-color: #ec6258;
       cursor: pointer;
       color: #fff;

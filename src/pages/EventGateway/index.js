@@ -13,7 +13,7 @@ const EventGatewayPage = (props) => {
 
   const content = (
     <div className={styles.contents}>
-      <p>React to any event, with any function, on any provider. Break away from the single cloud experience.'</p>
+      <p>BLAH React to any event, with any function, on any provider. Break away from the single cloud experience.'</p>
     </div>
   )
 

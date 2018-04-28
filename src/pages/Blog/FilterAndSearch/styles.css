@@ -2,7 +2,7 @@
 .container {
   width: 100%;
   padding: 0px 10px;
-  margin-top: 30px;
+  margin-top: 40px;
   margin-bottom: 0px;
   > div {
     border: 1px solid #8c8c8c;
@@ -34,13 +34,10 @@
 
     .current {
       composes: link;
-      background-image: url('../../../assets/images/dots-background.png');
-      background-size: 50px;
+      background-image: url('../../../assets/images/dot-grid.png');
+      background-size: 100px;
       background-repeat: repeat;
       background-position: center;
-      > .linkLabel {
-        background-color: rgba(255, 255, 255, .875);
-      }
     }
 
       .linkLabel {

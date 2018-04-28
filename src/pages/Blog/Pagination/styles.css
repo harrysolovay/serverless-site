@@ -13,15 +13,16 @@
     margin: 5px;
   }
 
+  .arrowImage {
+    width: 20px;
+    margin-top: 11px;
+    margin-right: 10px;
+    margin-left: 10px;
+  }
+
   .paginationLink {
     composes: paginationItem;
     padding: 5px 10px;
-    background: rgba(253,87,80,0.02);
-    border: 1px solid #fff;
-    -moz-border-image: -moz-linear-gradient(top, #ffffff 0%, #fd5750 100%);
-    -webkit-border-image: -webkit-linear-gradient(top, #ffffff 0%, #fd5750 100%);
-    border-image: linear-gradient(to bottom, #ffffff 0%, #fd5750 100%);
-    border-image-slice: 1;
   }
 
   .nextLink {
@@ -34,8 +35,12 @@
 
   .currentPageNumberLink {
     composes: paginationLink;
-    opacity: .25;
-    cursor: not-allowed;
+    background: rgba(253,87,80,0.02);
+    border: 1px solid #fff;
+    -moz-border-image: -moz-linear-gradient(top, #ffffff 0%, #fd5750 100%);
+    -webkit-border-image: -webkit-linear-gradient(top, #ffffff 0%, #fd5750 100%);
+    border-image: linear-gradient(to bottom, #ffffff 0%, #fd5750 100%);
+    border-image-slice: 1;
   }
 
   .pageNumberLinkSeparator {

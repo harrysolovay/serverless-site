@@ -1,3 +1,5 @@
+import authorData from './generated-authors.json'
+
 const categoryNames = {
   'application-development' : 'application development',
   'operations-and-observability' : 'operations & observability',
@@ -22,13 +24,14 @@ const getCategory = (dictionary) => (key) => {
 const getCategoryNameFromPath = getCategory(categoryNames)
 const getCategoryPathFromName = getCategory(categoryPaths)
 
-const createAuthorshipLabel = (arrayOfAuthorName) => {
-  return `Written by ${ arrayOfAuthorName.length > 1
+const createAuthorshipLabel = (arrayOfAuthorNames) => {
+  arrayOfAuthorNames = arrayOfAuthorNames.map(e => authorData[e].name)
+  return `Written by ${ arrayOfAuthorNames.length > 1
     ? (() => {
-        const last = arrayOfAuthorName.pop()
-        return `${ arrayOfAuthorName.join(', ') } and ${ last }`
+        const last = arrayOfAuthorNames.pop()
+        return `${ arrayOfAuthorNames.join(', ') } and ${ last }`
       })()
-    : arrayOfAuthorName[0] }`
+    : arrayOfAuthorNames[0] }`
 }
 
 export {

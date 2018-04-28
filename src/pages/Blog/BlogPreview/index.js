@@ -1,7 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { Link } from 'react-router'
-import authorData from '../generated-authors.json'
 import defaultThumbnail from '../../../assets/images/platform_4.gif'
 import styles from './styles.css'
 import { getCategoryNameFromPath, createAuthorshipLabel } from '../util'
@@ -9,7 +8,7 @@ import { getCategoryNameFromPath, createAuthorshipLabel } from '../util'
 const BlogPreview = ({ page }) => {
   let author
 
-  let thumbnail = defaultThumbnail
+  let image = defaultThumbnail
 
   const category = page.category
     ? page.category
@@ -20,14 +19,17 @@ const BlogPreview = ({ page }) => {
     : null
 
   const authorsLabel = page.authors
-    ? createAuthorshipLabel(page.authors.map(e => authorData[e].name))
+    ? createAuthorshipLabel(page.authors)
     : null
 
   if (page.draft) {
     return null
   }
-  if (page.thumbnail) {
-    thumbnail = page.thumbnail
+
+  if(page.image) {
+    image = page.image
+  } else if (page.thumbnail) {
+    image = page.thumbnail
   }
 
   // so we don't have to re-write with 'to' prop
@@ -70,7 +72,7 @@ const BlogPreview = ({ page }) => {
         <PostLink className={ styles.imageContainer }>
           <div
             className={ styles.image }
-            style={{ backgroundImage : `url(${ thumbnail})` }}
+            style={{ backgroundImage : `url(${ image })` }}
           />
         </PostLink>
 

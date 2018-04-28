@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component, Fragment } from 'react'
 import PropTypes from 'prop-types'
 import enhanceCollection from 'phenomic-serverless/lib/enhance-collection'
 import Default from '../../layouts/Default'
@@ -7,9 +7,9 @@ import FilterAndSearch from './FilterAndSearch'
 import Pagination from './Pagination'
 import Subscribe from '../../fragments/Subscribe'
 import styles from './Blog.css'
-import PreFooter from './PreFooter'
+import PreFooter from '../../fragments/PreFooter'
 import FeaturedPostPreview from './FeaturedPostPreview'
-import { createAuthorshipLabel } from './util';
+import Glitch from '../../components/Glitch'
 
 const numberOfPostsPerPage = 7
 
@@ -39,9 +39,34 @@ class BlogPage extends Component {
       pagination = numberOfPostsPerPage * pageNumber,
       offset = pagination + numberOfPostsPerPage
 
-    const featuredPost = this.context.collection.filter((post) => {
-      return post.featured
-    })[0]
+    const featuredPosts = this.context.collection.filter((post) => {
+      return ( !!!category && post.featured === 'all' || post.featured === category )
+    })
+
+    if(featuredPosts.length > 1) {
+
+      let featuredPostTitles = featuredPosts.map(post => `'${ post.title }'`)
+      const lastFeaturedPostTitle = featuredPostTitles.pop()
+      const category = category ? category : 'all'
+      console.log(featuredPosts)
+      throw new Error(`There are multiple posts set to display as featured for category '${ category }'. The post titles are: ${ featuredPostTitles.join(', ') } and ${ lastFeaturedPostTitle }. Check console logs for more the post objects.`)
+
+    }
+
+
+    const featuredPost = featuredPosts && featuredPosts[0]
+      ? (
+          <FeaturedPostPreview
+            image={ featuredPosts[0].hero ? featuredPosts[0].hero : featuredPosts[0].thumbnail }
+            category={ featuredPosts[0].category }
+            title={ featuredPosts[0].title }
+            description={ featuredPosts[0].description }
+            author={ featuredPosts[0].authors[0] }
+            url={ featuredPosts[0].__url }
+          />
+        )
+      : null
+
 
     const {
       latestPosts,
@@ -105,17 +130,8 @@ class BlogPage extends Component {
         )
       : (
           <div className={ styles.postList }>
-            {
-              !category &&
-                <FeaturedPostPreview
-                  image={ featuredPost.thumbnail }
-                  category={ featuredPost.category }
-                  title={ featuredPost.title }
-                  description={ featuredPost.description }
-                  authorshipLabel={ createAuthorshipLabel(featuredPost.authors) }
-                  url={ featuredPost.__url }
-                />
-            }
+            { featuredPost }
+            <Glitch mid />
             { searchAndFilter }
             {
               latestPosts.map((page, i) => {
@@ -134,7 +150,24 @@ class BlogPage extends Component {
                 numberOfPages
               } }
             />
-            <PreFooter />
+
+            <PreFooter
+              heading={ `New to Serverless?` }
+              subheadings={[
+                `To get started, pop open your terminal & run:`,
+                `npm install serverless -g`
+              ]}
+              links={[{
+                to: '/framework/docs/',
+                label: 'documentation'
+              }, {
+                to: '/framework/docs/',
+                label: 'serverless examples'
+              }, {
+                to: '/framework/docs/',
+                label: 'serverless plugins'
+              }]}
+            />
 
           </div>
         )

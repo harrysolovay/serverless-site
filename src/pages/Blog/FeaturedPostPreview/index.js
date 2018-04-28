@@ -2,15 +2,18 @@ import React from 'react'
 import styles from './styles.css'
 import { Link } from 'react-router'
 import { getCategoryNameFromPath } from '../util.js'
+import authorData from '../generated-authors.json'
 
 const FeaturedPost = ({
   image,
   category,
   title,
   description,
-  authorshipLabel,
+  author,
   url
 }) => {
+
+  const { name: authorName, avatar: authorAvatar } = authorData[author]
 
   const PostLink = props => (
     <Link
@@ -42,7 +45,27 @@ const FeaturedPost = ({
           { description }
         </div>
         <div className={ styles.authorshipLabel }>
-          { authorshipLabel }
+          <div className={ styles.writtenBy }>
+            Written by
+          </div>
+          <div className={ styles.avatar }>
+            {
+              (() => {
+                let avatarSections = []
+                for(let i = 0; i < 3; i++) {
+                  avatarSections.push(
+                    <div
+                      style={{ backgroundImage: `url(${ authorAvatar })` }}
+                    ></div>
+                  )
+                }
+                return avatarSections
+              })()
+            }
+          </div>
+          <div className={ styles.name }>
+            { authorName }
+          </div>
         </div>
       </div>
     </div>

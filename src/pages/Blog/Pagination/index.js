@@ -3,6 +3,9 @@ import React from 'react'
 import { Link } from 'react-router'
 import styles from './styles.css'
 
+import nextPageArrow from '../../../assets/images/next-page-arrow.png'
+import previousPageArrow from '../../../assets/images/previous-page-arrow.png'
+
 const Pagination = ({
   categorySubstring,
   pageNumber=0,
@@ -11,7 +14,9 @@ const Pagination = ({
 
   let nextLink = (
     <Link to={`/blog/${ categorySubstring }page/1`}>
-      <div className={ styles.nextLink }>next</div>
+      <div className={ styles.containsArrowImage }>
+        <img className={ styles.arrowImage } src={ nextPageArrow } />
+      </div>
     </Link>
   )
 
@@ -24,7 +29,9 @@ const Pagination = ({
   } else {
     nextLink = (
       <Link to={ `/blog/${ categorySubstring }page/${ pageNumber + 1 }` }>
-        <div className={ styles.nextLink }>next</div>
+        <div className={ styles.containsArrowImage }>
+          <img className={ styles.arrowImage } src={ nextPageArrow } />
+        </div>
       </Link>
     )
   }
@@ -34,7 +41,9 @@ const Pagination = ({
   } else {
     previousLink = (
       <Link to={ `/blog/${ categorySubstring }${ prevNum }` }>
-        <div className={ styles.previousLink }>previous</div>
+        <div className={ styles.containsArrowImage }>
+          <img className={ styles.arrowImage } src={ previousPageArrow } />
+        </div>
       </Link>
     )
   }
@@ -57,7 +66,8 @@ const Pagination = ({
       ]
     }
     
-    else if(pageNumber >= 5 && pageNumber < numberOfPages - 4) {
+    else if(pageNumber >= 4 && pageNumber < numberOfPages - 4) {
+      console.log(true)
       pageNumberLinkIndices = [
         0,
         '..',
