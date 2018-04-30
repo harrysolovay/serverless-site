@@ -76,13 +76,13 @@ const EventGatewayPage = (props) => {
             {
               [{
                 heading: `Simplify API development`,
-                body: `Simplify API The Event Gateway is the simplest developer experience for wiring Serverless functions to http endpoints.`
+                body: `Event Gateway is the simplest developer experience for wiring Serverless functions to http endpoints.`
               }, {
                 heading: `React to custom events`,
-                body: `Expand your Serverless use-cases by reacting to any custom event with Serverless functions.`
+                body: `Expand your Serverless use cases by reacting to any custom event with Serverless functions.`
               }, {
                 heading: `Vendor Choice`,
-                body: `The Event Gateway is open source and cloud agnostic, allowing for more choice and flexibility.`
+                body: `Event Gateway is open source and cloud agnostic, allowing for more choice and flexibility.`
               }].map(({ heading, body }, i) => (
                 <div
                   className={ styles.featureHighlight }
@@ -101,7 +101,7 @@ const EventGatewayPage = (props) => {
             />
             <div>
               <div>Serverless Event Gateway</div>
-              <div>{ `The Event Gateway is an event router designed for event-driven, serverless architectures. It makes it easy to wire functions to http endpoints, react to business events with serverless functions, and to share event subscriptions with others.` }</div>
+              <div>{ `Event Gateway is an event router designed for event-driven, serverless architectures. It makes it easy to wire functions to http endpoints, react to business events with serverless functions, and to share event subscriptions with others.` }</div>
             </div>
             <img
               src={ require('../../assets/images/event-gateway/providers.png') }
@@ -122,7 +122,7 @@ const EventGatewayPage = (props) => {
           {
             [{
               title: `Simple, serverless APIs`,
-              body:  `Use the Event Gateway alongside the Serverless Framework to get the simplest, most productive developer experience possible for developing APIs. A single configuration file allows you to list your functions and define the endpoints that they’re subscribed to. Hit deploy and you’re live.`,
+              body:  `Use Event Gateway alongside the Serverless Framework to get the simplest, most productive developer experience possible for developing APIs. A single configuration file allows you to list your functions and define the endpoints that they’re subscribed to. Hit deploy and you’re live.`,
               graphic: simpleServerlessApiGraphic,
               link: {
                 to: '/blog',
@@ -138,7 +138,7 @@ const EventGatewayPage = (props) => {
               }
             }, {
               title: `Multi-provider service`,
-              body:  `The Event Gateway is cloud agnostic, allowing for more vendor choice and flexibility.`,
+              body:  `Event Gateway is cloud agnostic, allowing for more vendor choice and flexibility.`,
               graphic: multiProviderService,
               link: {
                 to: '/blog',
@@ -192,11 +192,11 @@ const EventGatewayPage = (props) => {
               }, {
                 graphic: platformAgnosticGraphic,
                 title: `Platform Agnostic`,
-                body: `All your cloud services are now compatible with one another. Share cross-cloud functions and events with AWS Lambda, Microsoft Azure, IBM OpenWhisk and Google Cloud Platform.`
+                body: `All your cloud services are now compatible with one another. Share cross-cloud functions and events with AWS Lambda, Microsoft Azure, Google Cloud Platform, and more.`
               }, {
                 graphic: streamingEventsGraphic,
                 title: `Streaming Events`,
-                body: `Data streams in you application become events. Centralize events from any cloud provider to get a bird’s eye view of all the data flowing through your cloud.`
+                body: `Data streams in your application become events. Centralize events from any cloud provider to get a bird’s eye view of all the data flowing through your cloud.`
               }, {
                 graphic: shareableEventsGraphic,
                 title: `Shareable events`,
