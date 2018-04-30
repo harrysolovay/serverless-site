@@ -63,10 +63,10 @@ const EventGatewayPage = (props) => {
           <div className={ styles.headingAndCallToAction }>
             <div className={ styles.heading }>React to any event<br />on any cloud.</div>
             <div className={ styles.callToAction }>
-              <Link to='/blog'>
+              <a href='https://dashboard.serverless.com'>
                 <div>sign up</div>
-              </Link>
-              <Link to='/blog'>
+              </a>
+              <Link to='/enterprise'>
                 <div>contact sales</div>
               </Link>
             </div>
@@ -226,13 +226,15 @@ const EventGatewayPage = (props) => {
           `Dig deeper into Event Gateway use cases, or check out the example in our open source repo.`
         ]}
         links={[{
-          to: '/framework/docs/',
+          external: true,
+          to: 'https://github.com/serverless/event-gateway',
           label: 'getting started'
         }, {
-          to: '/framework/docs/',
+          to: '/learn/event-gateway/',
           label: 'learn more'
         }, {
-          to: '/framework/docs/',
+          external: true,
+          to: 'https://github.com/serverless/event-gateway/tree/master/examples',
           label: 'examples'
         }]}
       />

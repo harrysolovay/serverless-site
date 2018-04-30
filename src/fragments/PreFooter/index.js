@@ -36,12 +36,25 @@ const PreFooter = ({
 
         <div>
           {
-            links.map(({ to, label }, i) => (
-              <Link { ...{ to } }>
-                <div className={ styles.link }>
-                  { label }
-                </div>
-              </Link>
+            links.map(({ external, to, label }, i) => (
+              external
+                ? (
+                    <a
+                      href={ to }
+                      target='_blank'
+                    >
+                      <div className={ styles.link }>
+                        { label }
+                      </div>
+                    </a>
+                  )
+                : (
+                    <Link { ...{ to } }>
+                      <div className={ styles.link }>
+                        { label }
+                      </div>
+                    </Link>
+                  )
             ))
           }
         </div>
