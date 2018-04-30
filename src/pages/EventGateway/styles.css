@@ -167,19 +167,27 @@
 
   }
 
-  .useCasesHeadingAndSubtitle {
+  .sectionHeadingAndSubtitle {
     margin-top: 40px;
     margin-bottom: 80px;
     text-align: center;
-    > :first-child {
-      font-size: 2em;
-      line-height: 1.5em;
-    }
     > :nth-child(2) {
       font-size: .75em;
       line-height: 1.125em;
       color: #8c8c8c;
     }
+  }
+
+  .sectionHeading {
+    display: inline-block;
+    margin: 0px auto;
+    padding: 15px 30px;
+    background-image: url('../../assets/images/red-dot-grid.png');
+    background-repeat: no-repeat;
+    background-size: 40px;
+    background-position: 20px 15px;
+    font-size: 2em;
+    line-height: 1.5em;
   }
   
   .useCaseSection {
@@ -225,5 +233,40 @@
           padding: 10%;
         }
       }
+    }
+  }
+
+  .featuresGrid {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .feature {
+    width: 100%;
+    padding: 40px;
+    @media (min-width: 600px) {
+      width: 50%;
+    }
+    img {
+      width: 100px;
+    }
+    :nth-child(2) {
+      margin-top: 15px;
+      position: relative;
+      > :first-child {
+        position: absolute;
+        color: #fd5750;
+        font-size: 4em;
+      }
+      > :nth-child(2) {
+        font-size: 1.25em;
+        padding: 26px 0px 15px 0px;
+        background-color: rgba(255, 255, 255, .875);
+      }
+    }
+    div:nth-child(3) {
+      margin-top: 10px;
+      line-height: 1.5em;
     }
   }

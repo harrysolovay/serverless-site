@@ -29,6 +29,7 @@
 }
 
   .text {
+    padding: 0px 50px;
     background-color: #fd5750;
     background-image: url('../../assets/images/dot-grid.png');
     background-size: 100px;

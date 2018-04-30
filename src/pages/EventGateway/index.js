@@ -2,10 +2,19 @@ import React from 'react'
 import { Link } from 'react-router'
 import Default from '../../layouts/Default'
 import styles from './styles.css'
+import Glitch from '../../components/Glitch'
+import PreFooter from '../../fragments/PreFooter'
 
 import simpleServerlessApiGraphic from '../../assets/images/event-gateway/simple-serverless-apis.png'
 import subscribeFunctionsToWebhooksGraphic from '../../assets/images/event-gateway/subscribe-functions-to-webhooks.png'
 import multiProviderService from '../../assets/images/event-gateway/multi-provider-service.png'
+
+import apiGatewayGraphic from '../../assets/images/event-gateway/api-gateway.png'
+import pubSubGraphic from '../../assets/images/event-gateway/pub-sub.png'
+import connectorFunctionsGraphic from '../../assets/images/event-gateway/connector-functions.png'
+import platformAgnosticGraphic from '../../assets/images/event-gateway/platform-agnostic.png'
+import streamingEventsGraphic from '../../assets/images/event-gateway/streaming-events.png'
+import shareableEventsGraphic from '../../assets/images/event-gateway/sharable-events.png'
 
 const EventGatewayPage = (props) => {
 
@@ -105,8 +114,8 @@ const EventGatewayPage = (props) => {
       <div className={ styles.section }>
         <div>
 
-          <div className={ styles.useCasesHeadingAndSubtitle }>
-            <div>Event Gateway Use Cases</div>
+          <div className={ styles.sectionHeadingAndSubtitle }>
+            <div className={ styles.sectionHeading }>Event Gateway Use Cases</div>
             <div>These are the 3 main use cases for Event Gateway that you should know about.</div>
           </div>
 
@@ -156,6 +165,74 @@ const EventGatewayPage = (props) => {
 
         </div>
       </div>
+
+      <Glitch mid />
+
+      <div className={ styles.section }>
+        <div>
+        
+          <div className={ styles.sectionHeadingAndSubtitle }>
+            <div className={ styles.sectionHeading }>Features</div>
+          </div>
+
+          <div className={ styles.featuresGrid }>
+            {
+              [{
+                graphic: apiGatewayGraphic,
+                title: `API Gateway`,
+                body: `Easily subscribe FaaS functions to HTTP endpoints. Set up multiple Serverless services under a single domain, even across AWS accounts.`
+              }, {
+                graphic: pubSubGraphic,
+                title: `Pub/Sub`,
+                body: `Take advantage of pub/sub functionality by utilizing custom events. This allows you to process the same event with multiple systems.`
+              }, {
+                graphic: connectorFunctionsGraphic,
+                title: `Connector Functions`,
+                body: `Automatically route events to external systems like Kinesis, Firehose, SQS, etc.`
+              }, {
+                graphic: platformAgnosticGraphic,
+                title: `Platform Agnostic`,
+                body: `All your cloud services are now compatible with one another. Share cross-cloud functions and events with AWS Lambda, Microsoft Azure, IBM OpenWhisk and Google Cloud Platform.`
+              }, {
+                graphic: streamingEventsGraphic,
+                title: `Streaming Events`,
+                body: `Data streams in you application become events. Centralize events from any cloud provider to get a bird’s eye view of all the data flowing through your cloud.`
+              }, {
+                graphic: shareableEventsGraphic,
+                title: `Shareable events`,
+                body: `Share events and functions to other parts of the application. Your teammates can find them and utilize them in their own services.`
+              }].map(({ graphic, title, body }, i) => (
+                <div className={ styles.feature }>
+                  <img src={ graphic } />
+                  <div>
+                    <div>0{ i + 1 }</div>
+                    <div>{ title }</div>
+                  </div>
+                  <div>{ body }</div>
+                </div>
+              ))
+            }
+          </div>
+
+        </div>
+      </div>
+
+      <PreFooter
+        heading={ `Ready to get started?` }
+        subheadings={[
+          `Dig deeper into Event Gateway use cases, or check out the example in our open source repo.`
+        ]}
+        links={[{
+          to: '/framework/docs/',
+          label: 'getting started'
+        }, {
+          to: '/framework/docs/',
+          label: 'learn more'
+        }, {
+          to: '/framework/docs/',
+          label: 'examples'
+        }]}
+      />
 
     </Default>
   )
