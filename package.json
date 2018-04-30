@@ -7,7 +7,7 @@
   "phenomic": {
     "CNAME": true,
     "offline": false,
-    "cache": true,
+    "cache": false,
     "disableServiceWorkerReload": true
   },
   "scripts": {

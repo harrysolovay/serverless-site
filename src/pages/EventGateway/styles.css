@@ -1,0 +1,36 @@
+.section {
+  > div {
+    max-width: 1000px;
+    margin: 0px auto;
+  }
+}
+
+.firstSection {
+  margin-top: $navHeight;
+  color: #fff;
+  background-color: rgba(0, 0, 0, .9);
+  background-image: url('../../assets/images/event-gateway/harddrive.png');
+  background-size: 100%;
+  background-position: center top;
+  background-repeat: no-repeat;
+  composes: section;
+}
+
+.nav {
+  margin-bottom: 100px;
+  display: inline-block;
+  border: .5px solid #fff;
+  > * {
+    display: inline-block;
+  }
+}
+
+.navItem {
+  padding: 10px 15px;
+}
+
+.selectedNavItem {
+  background-image: url('../../assets/images/dots-black-background.png');
+  background-size: cover;
+  composes: navItem;
+}

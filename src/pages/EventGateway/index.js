@@ -1,79 +1,91 @@
 import React from 'react'
 import { Link } from 'react-router'
 import Default from '../../layouts/Default'
-import GridSection from '../../components/GridSection'
-import Hero from '../../fragments/HeroProduct'
-import styles from './EventGateway.css'
-
-const urlBase = process.env.S3_BUCKET
+import styles from './styles.css'
 
 const EventGatewayPage = (props) => {
-  const img = `${urlBase}images/event-gateway-ground.svg`
-  const bg = `${urlBase}images/toolkit-ground.png`
-
-  const content = (
-    <div className={styles.contents}>
-      <p>BLAH React to any event, with any function, on any provider. Break away from the single cloud experience.'</p>
-    </div>
-  )
-
-  const ctaButton = (
-    <div className={styles.ctaWrapper}>
-      <a className={`${styles.btn} ${styles.btnGrey}`} href='https://github.com/serverless/event-gateway'>
-        <img width={24} height={24} src={`${urlBase}images/github-icon.svg`} />
-        Github
-      </a>
-      <Link to='/event-gateway/enterprise/' className={`${styles.btn} ${styles.btnGrey}`}>
-        Gateway Enterprise
-      </Link>
-    </div>
-  )
 
   return (
-    <Default className={styles.page} {...props} fullWidth whiteLogo coloredHeader={false}>
-      <Hero
-        background={{
-          backgroundColor: '#159BBA',
-          backgroundImage: `url(${bg}), url(${img})`,
-          backgroundPosition: 'center top, center 65%',
-          backgroundSize: '100%, 94%'
-        }}
-        icon={`${urlBase}icons/gateway.svg`}
-        title='Event Gateway'
-        content={content}
-        cta={ctaButton}
-      />
-      <GridSection
-        items={[
-          {
-            title: 'API gateway + pub/sub',
-            text: 'A single piece of infrastructure for any type of serverless application.'
-          },
-          {
-            title: 'Extendable through middleware',
-            text: 'Perform data transforms, authorizations, serializations, and other custom computes straight from the Gateway.'
-          },
-          {
-            title: 'Platform agnostic',
-            text: 'All your cloud services are now compatible with one another: share cross-cloud functions and events with AWS Lambda, Microsoft Azure, IBM OpenWhisk and Google Cloud Platform.'
-          },
-          {
-            title: 'Send events from any cloud',
-            text: 'Data streams in your application become events. Centralize events from any cloud provider to get a bird’s eye view of all the data flowing through your cloud.'
-          },
-          {
-            title: 'React to cross-cloud events',
-            text: 'You aren’t locked in to events and functions being on the same provider: Any event, on any cloud, can trigger any function. Set events and functions up like dominoes and watch them fall.'
-          },
-          {
-            title: 'Expose events to your team',
-            text: 'Share events and functions to other parts of the application. Your teammates can find them and utilize them in their own services.'
-          },
-        ]}
-      />
+    <Default className={ styles.page } {...props} fullWidth whiteLogo coloredHeader={ true }>
+      
+      <div className={ styles.firstSection }>
+        <div>
+
+          <div className={ styles.nav }>
+            {
+              [{
+                to: `/blog`,
+                label: `overview`
+              }, {
+                to: `/blog`,
+                label: `framework`
+              }, {
+                to: `/blog`,
+                label: `dashboard`
+              }, {
+                to: `/blog`,
+                label: `event gateway`
+              }].map(({ to, label }, i) => (
+                <Link
+                  to={ to }
+                  key={ i }
+                >
+                  <div
+                    className={
+                      i === 3
+                        ? styles.selectedNavItem
+                        : styles.navItem
+                    }
+                  >
+                    { label }
+                  </div>
+                </Link>
+              ))
+            }
+          </div>
+
+          <div className={ styles.headingAndCallToAction }>
+            <div className={ styles.heading }>React to any event on<br />any cloud.</div>
+            <div className={ styles.callToAction }>
+              <Link to='/blog'>
+                <div>sign up</div>
+              </Link>
+              <Link to='/blog'>
+                <div>contact sales</div>
+              </Link>
+            </div>
+          </div>
+
+          <div>
+            {
+              [{
+                heading: `Simplify API development`,
+                body: `Simplify API The Event Gateway is the simplest developer experience for wiring Serverless functions to http endpoints.`
+              }, {
+                heading: `React to custom events`,
+                body: `Expand your Serverless use-cases by reacting to any custom event with Serverless functions.`
+              }, {
+                heading: `Vendor Choice`,
+                body: `The Event Gateway is open source and cloud agnostic, allowing for more choice and flexibility.`
+              }].map(({ heading, body }, i) => (
+                <div
+                  className={ styles.featureHighlight }
+                  key={ i }
+                >
+                  <div>{ heading }</div>
+                  <div>{ body }</div>
+                </div>
+              ))
+            }
+          </div>
+
+        </div>
+      </div>
+
     </Default>
   )
 }
+
 EventGatewayPage.hasLoadingState = true
 
 export default EventGatewayPage
