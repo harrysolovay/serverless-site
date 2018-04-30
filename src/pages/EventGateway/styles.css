@@ -1,7 +1,9 @@
 .section {
+  font-family: Arial, Helvetica, sans-serif;
   > div {
-    max-width: 1000px;
+    max-width: 1400px;
     margin: 0px auto;
+    padding: 5%;
   }
 }
 
@@ -17,20 +19,211 @@
 }
 
 .nav {
-  margin-bottom: 100px;
-  display: inline-block;
-  border: .5px solid #fff;
+  display: flex;
+  flex-direction: row;
+  @media (max-width: 960px) {
+    flex-direction: column;
+  }
   > * {
-    display: inline-block;
+    display: flex;
+    flex-direction: row;
+    flex: 1;
+    a {
+      flex: 1;
+    }
+    &:first-child {
+      border: .5px solid rgba(255, 255, 255, .3);
+    }
   }
 }
 
 .navItem {
-  padding: 10px 15px;
+  flex: 1;
+  padding: 14px 0px;
+  font-size: .75em;
+  line-height: 1.125em;
+  text-align: center;
 }
 
 .selectedNavItem {
   background-image: url('../../assets/images/dots-black-background.png');
-  background-size: cover;
+  background-size: 100px;
   composes: navItem;
 }
+
+.headingAndCallToAction {
+  margin-top: 60px;
+  display: flex;
+  flex-direction: row;
+  @media (max-width: 760px) {
+    flex-direction: column;
+  }
+}
+
+  .heading {
+    flex: 1;
+    font-size: 3em;
+    line-height: 1em;
+  }
+
+  .callToAction {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    @media (min-width: 760px) {
+      padding-left: 20px;
+    }
+    > * {
+      width: 100%;
+    }
+    > * > * {
+      text-align: center;
+      @media (min-width: 760px) {
+        width: 240px;
+      }
+    }
+    > *:first-child > * {
+      background-color: #fd5750;
+      padding-top: 11px;
+      padding-bottom: 11px;
+      @media (max-width: 760px) {
+        margin-top: 20px;
+      }
+    }
+    > *:nth-child(2) > * {
+      color: #fd5750;
+      border: 1px solid #fd5750;
+      margin-top: 10px;
+      padding-top: 10px;
+      padding-bottom: 10px;
+    }
+  }
+
+  .features {
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    
+    > div {
+      padding-left: 30px;
+      padding-right: 30px;
+    }
+    @media (min-width: 760px) {
+      flex-direction: row;
+    }
+  }
+
+  .featureHighlight {
+
+    padding-top: 20px;
+    padding-bottom: 20px;
+    background-image: url('../../assets/images/red-dot-grid.png');
+    background-repeat: no-repeat;
+    background-size: 50px;
+    background-position: 20px 15px;
+    overflow: visible;
+
+    > :first-child {
+      font-size: 1.25em;
+      line-height: 1.25em;
+    }
+
+    > :nth-child(2) {
+      color: #8c8c8c;
+      margin-top: 10px;
+      line-height: 1.5em;
+    }
+
+  }
+
+  .headingBlurbAndGraphic {
+
+    padding: 10px 0px;
+    text-align: center;
+
+    img {
+      margin-top: 40px;
+    }
+
+    img:first-child {
+      width: 50px;
+      margin-top: 40px;
+    }
+
+    > div {
+      max-width: 600px;
+      margin: 20px auto 0px auto;
+      > :first-child {
+        font-size: 1.75em;
+        line-height: 1.625em;
+      }
+      > :nth-child(2) {
+        color: #8c8c8c;
+        line-height: 1.5em;
+      }
+    }
+
+  }
+
+  .useCasesHeadingAndSubtitle {
+    margin-top: 40px;
+    margin-bottom: 80px;
+    text-align: center;
+    > :first-child {
+      font-size: 2em;
+      line-height: 1.5em;
+    }
+    > :nth-child(2) {
+      font-size: .75em;
+      line-height: 1.125em;
+      color: #8c8c8c;
+    }
+  }
+  
+  .useCaseSection {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    @media (min-width: 600px) {
+      flex-direction: row;
+      &:nth-child(odd) {
+        flex-direction: row-reverse;
+      }
+    }
+    > div {
+      flex: 1;
+      padding: 0px 5%;
+      &:first-child {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        > :first-child {
+          font-size: 1.5em;
+          margin-bottom: 10px;
+        }
+        > :nth-child(2) {
+          color: #5b5b5b;
+          line-height: 1.5em;
+        }
+        > :nth-child(3) {
+          margin-top: 40px;
+          width: 100%;
+          > * {
+            flex: 1;
+            text-align: center;
+            color: #fff;
+            padding: 10px 0px;
+            background-color: #fd5750;
+          }
+        }
+      }
+      &:nth-child(2) {
+        > img {
+          padding: 10%;
+        }
+      }
+    }
+  }
