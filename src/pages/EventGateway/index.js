@@ -202,7 +202,10 @@ const EventGatewayPage = (props) => {
                 title: `Shareable events`,
                 body: `Share events and functions to other parts of the application. Your teammates can find them and utilize them in their own services.`
               }].map(({ graphic, title, body }, i) => (
-                <div className={ styles.feature }>
+                <div
+                  className={ styles.feature }
+                  key={ i }
+                >
                   <img src={ graphic } />
                   <div>
                     <div>0{ i + 1 }</div>
