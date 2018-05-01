@@ -129,8 +129,8 @@ const EventGatewayPage = (props) => {
                 label: 'view example'
               }
             }, {
-              title: `Subscribe functions to webhooks`,
-              body:  `The Event Gateway makes it dead simple to wire functions to any customer event, including webhooks.`,
+              title: `Automate business processes`,
+              body:  `Use the Event Gateway to connect your business systems. Update your CRM whenever a new user signs up for your product. Trigger emails when inventory is running low.`,
               graphic: subscribeFunctionsToWebhooksGraphic,
               link: {
                 to: '/blog',
