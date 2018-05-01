@@ -227,7 +227,7 @@ const EventGatewayPage = (props) => {
         ]}
         links={[{
           external: true,
-          to: 'https://github.com/serverless/event-gateway',
+          to: 'https://github.com/serverless/event-gateway-getting-started',
           label: 'getting started'
         }, {
           to: '/learn/event-gateway/',
